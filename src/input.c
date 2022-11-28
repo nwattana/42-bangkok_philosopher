@@ -6,11 +6,12 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 16:13:22 by nwattana          #+#    #+#             */
-/*   Updated: 2022/11/20 17:02:47 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/11/26 17:02:41 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+#include "dump.h"
 
 static int		get_val(const char *s, t_dt *dt);
 static int		m_strlen(const char *s);
@@ -21,7 +22,7 @@ int	collect_d(t_dt *dt, int ac, char **av)
 {
 	int		i;
 
-	if (ac < 4 || ac > 5)
+	if (ac < 4 || ac > 7)
 		return (INVALID_INPUT_AMOUNT);
 	i = 1;
 	dt->philo_f = -1;
@@ -29,9 +30,19 @@ int	collect_d(t_dt *dt, int ac, char **av)
 	dt->philo_l = get_val(av[i++], dt);
 	dt->philo_e = get_val(av[i++], dt);
 	dt->philo_s = get_val(av[i++], dt);
-	if (ac == 5)
-		dt->philo_f = get_val(av[i++], dt);
+	if (ac == 6)
+		dt->philo_f = get_val(av[i], dt);
+	if (!(dt->err))
+		dt->err = is_validin(dt, ac);
 	return (dt->err);
+}
+
+t_err	is_validin(t_dt *dt, int ac)
+{
+	if (dt->philo_c > 199 || dt->philo_l < 60 || dt->philo_e < 60 \
+			|| dt->philo_s < 60 || (ac == 6 && dt->philo_f < 0))
+			return (NOT_ACCEPT_INPUT);
+	return (PROGRAM_OK);
 }
 
 static int	get_val(const char *s, t_dt *dt)
