@@ -4,10 +4,12 @@ CC=cc
 CFLAG=
 PTHREAD=
 INC= -iquote./inc/
-FLIE= ./main.c ./src/input.c
+FLIE= ./main.c ./src/input.c\
+		./src/init.c ./src/routine.c\
+		./src/start_dinner.c
 		
 
-DEB=./src/dump.c
+DEB=
 
 SRC=$(FLIE) $(DEB)
 

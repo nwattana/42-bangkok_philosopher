@@ -5,20 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/29 02:08:03 by nwattana          #+#    #+#             */
-/*   Updated: 2022/11/29 02:09:14 by nwattana         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   philo.h                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 01:03:10 by nwattana          #+#    #+#             */
-/*   Updated: 2022/11/29 01:52:23 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/11/29 13:29:39 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,35 +25,49 @@
 # define ACTION_TIME_LIMIT 60
 
 
+typedef struct s_dt t_dt;
+/*
+	id -> to naming Philo
+	*my_live -> point to live in table
+	p-> thread
+	*fork -> Philo's Fork
+	o_fork -> for point to the other fork
+*/
 typedef	struct	s_philo
 {
-	int		name;
-	int		*my_live;
+	int					id;
+	int					*my_live;
+	pthread_t			p;
+	pthread_mutex_t		fork;
+	pthread_mutex_t		*o_fork;
+	struct s_philo		*n_philo;
+	t_dt	*table;
 }			t_philo;
 
 /*
-dt ? dinner_table
-philo_c - count
-philo_l - live
-philo_e - eat
-philo_s - sleep
-philo_f - full -> eat times
-pla - philo live array Collect Philo Live
-table -> thread which manipulated the other thread
+	dt ? dinner_table
+	philo_c - count
+	philo_l - live
+	philo_e - eat
+	philo_s - sleep
+	philo_f - full -> eat times
+	time -> time in ms count from start
+	pla - philo live array Collect Philo Live
+	table -> thread which manipulated the other thread
 */
 typedef struct s_dt
 {
-	t_err	err;
-	int		philo_c;
-	int		philo_l;
-	int		philo_e;
-	int		philo_s;
-	int		philo_f;
+	t_err		err;
+	int			philo_c;
+	int			philo_l;
+	int			philo_e;
+	int			philo_s;
+	int			philo_f;
 
-	int		time;
-	int		*pla;
+	int			time;
+	int			*pla;
 	pthread_t	table;
-	t_philo	*philo;
+	t_philo		*philo;
 }			t_dt;
 
 
@@ -78,10 +80,15 @@ t_err	is_validin(t_dt *ds, int c);
 /*
 	initail phase
 */
-void	set_up_dinner_table(t_dt *dt);
+void	setup_dinner_table(t_dt *dt);
 
 /*
 	start dinning
 */
-
+void	start_dinner(t_dt *dt);
+void	*routine(void *arg);
+void	invite_guest(t_dt *dt);
+void	invite_lst_add(t_philo **host, t_philo *guest);
+t_philo	*philo_listed(int	i, t_dt *dt);
+void	*tbr(void	*arg);
 #endif

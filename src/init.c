@@ -1,34 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/20 12:16:09 by nwattana          #+#    #+#             */
-/*   Updated: 2022/11/29 12:40:23 by nwattana         ###   ########.fr       */
+/*   Created: 2022/11/29 02:25:49 by nwattana          #+#    #+#             */
+/*   Updated: 2022/11/29 13:42:37 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-#include "dump.h"
 
-int	main(int ac, char **av)
+static void		hp_bar(t_dt *dt);
+void	setup_dinner_table(t_dt *dt)
 {
-	t_dt	dt;
+	int		i;
 
-	dt.err = 0;
-	collect_d(&dt, ac, av);
-	if (!dt.err)
-	{
-		setup_dinner_table(&dt);
-		invite_guest(&dt);
-		start_dinner(&dt);
-	}
-	else if (dt.err == NOT_ACCEPT_INPUT)
-		printf("Check You \e[1;31mINPUT\e[0m Please!!\n");
-	else
-		printf("error = %d\n", dt.err);
-	return (0);
+	i = 0;
+	if (dt->err)
+		return ;
+	hp_bar(dt);
+	dt->time = 0;
 }
 
+static void		hp_bar(t_dt *dt)
+{
+	int	i;
+	int	*tmp;
+
+	i = 0;
+	if (!dt)
+		return ;
+	tmp = malloc(sizeof(int) * dt->philo_c);
+	if (!tmp)
+	{
+		dt->err = MALLOC_FAIL;
+		return ;
+	}
+	while (i < dt->philo_c)
+	{
+		tmp[i] = dt->philo_l;
+		i++;
+	}
+	dt->pla = tmp;
+}

@@ -23,8 +23,12 @@ get val
 	- [x] check len > 10 for max int - 2147483647 over this len not accept
 
 ## Phase 2 start Philo
-- [ ] Set updinner table   
-	- for Timmer and check Philosopher live
+- [x] Set updinner table   
+	- [x] for Timmer and check Philosopher live
+	- [x] HP monitor for each philosopher
+	- []
+	- []
+	- []
 - [ ] 
 
 
@@ -46,6 +50,9 @@ int	pthread_detach(pthread_t thread)
 
 ```c
 int	pthread_mutex_init(pthread_mutex_t *mutex, const pthread_mutexattr_t *attr)
+
+// in use
+pthread_mutex_init(&(mutex_var), NULL);
 ```
 - Initialize a mutex with specified attributes.
 

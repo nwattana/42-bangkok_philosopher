@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 16:17:28 by nwattana          #+#    #+#             */
-/*   Updated: 2022/11/27 18:11:00 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/11/29 02:27:16 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ typedef enum e_error{
 	EMPTY_STR_PASSED,
 	NOT_A_NUMBER,
 	OVER_INT_LEN,
-	NOT_ACCEPT_INPUT
+	NOT_ACCEPT_INPUT,
+	MALLOC_FAIL,
 }		t_err;
 
 typedef	enum s_philo_state
