@@ -2,7 +2,7 @@ NAME=philo
 
 CC=cc
 CFLAG=
-PTHREAD=
+PTHREAD= -pthread 
 INC= -iquote./inc/
 FLIE= ./main.c ./src/input.c\
 		./src/init.c ./src/routine.c\

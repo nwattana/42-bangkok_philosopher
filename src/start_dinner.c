@@ -60,15 +60,19 @@ void	invite_guest(t_dt *dt)
 	t_philo *tmp;
 
 	i = 1;
+	dt->philo = NULL;
 	while (i <= dt->philo_c)
 	{
+
 		tmp = philo_listed(i, dt);
+		printf("Hello i = %d\n", i);
 		if (!tmp)
 		{
 			dt->err = MALLOC_FAIL;
 			return ;
 		}
 		invite_lst_add(&(dt->philo), tmp);
+				printf("Hello i = %d\n", i);
 		i++;
 	}
 }

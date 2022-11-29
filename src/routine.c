@@ -19,7 +19,6 @@ void	*routine(void *arg)
 
 	philo = (t_philo *)arg;
 	dt = philo->table;
-	;
 	while (1)
 	{
 		printf("%d ms Philo %d is Think\n", dt->time, philo->id);
@@ -50,12 +49,12 @@ void	*tbr(void	*arg)
 		dt->time++;
 		while (i < dt->philo_c)
 		{
-			if (dt->pla[i] <= 0)
-			{
-				printf("\e[1;31m%d Philo Number %d DIE \e[0m\n", dt->time, i + 1);
-				exit(0);
+			// if (dt->pla[i] <= 0)
+			// {
+			// 	printf("\e[1;31m%d Philo Number %d DIE \e[0m\n", dt->time, i + 1);
+			// 	exit(0);
 
-			}
+			// }
 			dt->pla[i] -= 1;
 			i++;
 		}
