@@ -65,14 +65,12 @@ void	invite_guest(t_dt *dt)
 	{
 
 		tmp = philo_listed(i, dt);
-		printf("Hello i = %d\n", i);
 		if (!tmp)
 		{
 			dt->err = MALLOC_FAIL;
 			return ;
 		}
 		invite_lst_add(&(dt->philo), tmp);
-				printf("Hello i = %d\n", i);
 		i++;
 	}
 }
@@ -111,4 +109,50 @@ t_philo	*philo_listed(int i, t_dt *dt)
 	pthread_mutex_init(&(philo->fork), NULL);
 	philo->table = dt;
 	return (philo);
+}
+
+int	my_sleep(int time_in_ms)
+{
+	unsigned long pre;
+	unsigned long cur;
+	unsigned long dif;
+	struct timeval time;
+
+	gettimeofday(&time, NULL);
+	pre = time.tv_sec * 10000000 + time.tv_usec;
+	while (time_in_ms)
+	{
+		gettimeofday(&time, NULL);
+		cur	 = time.tv_sec * 10000000 + time.tv_usec;
+		dif = cur - pre;
+		if (dif > 1000)
+		{
+			time_in_ms--;
+			pre = cur;
+		}
+	}
+	return (0);
+}
+
+int	my_usleep(int time_in_us)
+{
+	unsigned long pre;
+	unsigned long cur;
+	unsigned long dif;
+	struct timeval time;
+
+	gettimeofday(&time, NULL);
+	pre = time.tv_sec * 10000000 + time.tv_usec;
+	while (time_in_us)
+	{
+		gettimeofday(&time, NULL);
+		cur	 = time.tv_sec * 10000000 + time.tv_usec;
+		dif = cur - pre;
+		if (dif > 1)
+		{
+			time_in_us--;
+			pre = cur;
+		}
+	}
+	return (0);
 }

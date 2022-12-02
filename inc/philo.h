@@ -91,4 +91,10 @@ void	invite_guest(t_dt *dt);
 void	invite_lst_add(t_philo **host, t_philo *guest);
 t_philo	*philo_listed(int	i, t_dt *dt);
 void	*tbr(void	*arg);
+
+/*
+	Utils
+*/
+int		my_sleep(int time_in_ms);
+int		my_usleep(int time_in_us);
 #endif

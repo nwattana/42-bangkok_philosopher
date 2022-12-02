@@ -32,7 +32,7 @@ get val
 - [ ] 
 
 
-### pthread Allowed Function
+### Pthread Allowed Function
 ``` c
 int	pthread_create (pthread_t *thread, const pthread *attr, void *(*start_rountine)(void *), void *arg) 
 ```
