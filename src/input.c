@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 16:13:22 by nwattana          #+#    #+#             */
-/*   Updated: 2022/11/29 12:41:56 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/12/04 00:19:36 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	collect_d(t_dt *dt, int ac, char **av)
 {
 	int		i;
 
-	if (ac < 4 || ac > 7)
+	if (ac < 5 || ac > 6)
 		return (INVALID_INPUT_AMOUNT);
 	i = 1;
 	dt->philo_f = -1;

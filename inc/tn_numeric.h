@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 16:17:28 by nwattana          #+#    #+#             */
-/*   Updated: 2022/11/29 02:27:16 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/12/04 03:28:51 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ typedef enum e_error{
 	MALLOC_FAIL,
 }		t_err;
 
-typedef	enum s_philo_state
+typedef enum s_philo_state
 {
-	WAITING,
-	EATING,
-	SLEEP,
+	WAITING = 1,
+	EATING = 2,
+	SLEEP = 3,
 	READY = -1,
 	DIE = -2
 }	t_pstate;

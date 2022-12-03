@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 12:16:09 by nwattana          #+#    #+#             */
-/*   Updated: 2022/11/29 12:40:23 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/12/04 01:20:50 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,34 @@ int	main(int ac, char **av)
 {
 	t_dt	dt;
 
+	if (ac < 5 || ac > 6)
+		return (1);
 	dt.err = 0;
 	collect_d(&dt, ac, av);
 	if (!dt.err)
 	{
-		setup_dinner_table(&dt);
-		invite_guest(&dt);
-		start_dinner(&dt);
+		init_tb(&dt);
+		inti_philo(&dt);
+
 	}
-	else if (dt.err == NOT_ACCEPT_INPUT)
-		printf("Check You \e[1;31mINPUT\e[0m Please!!\n");
-	else
-		printf("error = %d\n", dt.err);
 	return (0);
 }
 
+void	init_tb(t_dt *dt)
+{
+	dt->dead_count = 0;
+	dt->stop = 0;
+}
+
+void	init_philo(t_dt *dt)
+{
+	t_philo *philo;
+	int		i;
+
+	while (i < dt->philo)
+	{
+		philo = philo_listed(i + 1, dt);
+		invite_lst_add(&(dt->philo), philo);
+		i++;
+	}
+}

@@ -22,13 +22,13 @@ get val
 	- [x] check all number in str (not accept '-' sign)
 	- [x] check len > 10 for max int - 2147483647 over this len not accept
 
-## Phase 2 start Philo
-- [x] Set updinner table   
-	- [x] for Timmer and check Philosopher live
-	- [x] HP monitor for each philosopher
-	- []
-	- []
-	- []
+## Phase 2 initial
+- [x] Setup dinner table   
+	- [xt 
+	- [x] 
+	- [ ]
+	- [ ]
+	- [ ]
 - [ ] 
 
 
@@ -81,5 +81,28 @@ int pthread_mutex_trylock(
 
 ### Timer must check for a philo life
 
-### gettimeofday(struct timeval *s, (*void))  
+### gettimeofday(struct timeval *s,(*void))  
+
+
+### program Flow
+- checkinput
+- init table
+- init philo
+- link philo
+- start timer && let philo do rountine
+- table thread 
+	- provide {timer , terminate signal, const} to philo
+- each philo thread
+	- do rountine
+	- taken fork
+	- taken fork
+	- is Eating --> use sleep to simulate it
+	- is Sleep --> use sleep to simulate it
+
+##### note 
+	- each philo can die during in rountine action
+	- each philo aviod dead
+
+
+
 

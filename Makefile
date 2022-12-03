@@ -5,8 +5,8 @@ CFLAG=
 PTHREAD= -pthread 
 INC= -iquote./inc/
 FLIE= ./main.c ./src/input.c\
-		./src/init.c ./src/routine.c\
-		./src/start_dinner.c
+		./src/routine.c\
+		./src/philo_lst.c
 		
 
 DEB=
