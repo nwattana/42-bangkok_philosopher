@@ -13,7 +13,7 @@
 
 NAME=philo
 
-SRC= philo.c
+SRC= philo.c input.c
 
 OBJS	=$(SRC:.c=.o)
 
