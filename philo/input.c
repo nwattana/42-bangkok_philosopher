@@ -39,6 +39,7 @@ void    get_info(t_prog *prog, int ac, char **av)
 
 void    init_prog(t_prog *prog)
 {
+    prog->philo = NULL;
     prog->cp = 0;
     prog->dp = 0;
     prog->ep = 0;

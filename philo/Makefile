@@ -13,7 +13,9 @@
 
 NAME=philo
 
-SRC= philo.c input.c
+SRC= philo.c input.c utils.c \
+	init_thread.c my_time.c run_thread.c
+
 
 OBJS	=$(SRC:.c=.o)
 
