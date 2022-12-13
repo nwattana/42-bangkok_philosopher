@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 01:47:45 by nwattana          #+#    #+#             */
-/*   Updated: 2022/12/12 01:47:47 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/12/14 01:39:58 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void    *table_routine(void *arg)
     while (prog->stop)
     {
         index = 0;
-        while (index < prog->cp)
+        while (prog->stop && index < prog->cp)
         {
             if (actiontime(prog->start) - prog->philo[index].last_eat > prog->dp)
             {
