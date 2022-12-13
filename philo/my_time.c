@@ -18,7 +18,7 @@ void    my_sleep(long ms, t_prog *prog)
 
     start = get_curtime();
     while (prog->stop && (get_curtime() - start) < ms)
-        usleep(100);
+        usleep(200);
 }
 
 void    my_usleep(int us_time)

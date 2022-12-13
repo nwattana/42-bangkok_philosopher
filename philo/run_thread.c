@@ -21,7 +21,6 @@ void    run_routine(t_prog *prog)
     index = 0;
     philo = prog->philo;
     prog->start = get_curtime();
-	printf("\e[1;31m%d\e[0m;\n",prog->start);
     while (index < prog->cp)
     {
         i = get_index(index, prog->cp);
@@ -33,7 +32,6 @@ void    run_routine(t_prog *prog)
             return ;
         }
         index++;
-        usleep(1);
     }
     pthread_create(&(prog->tb), NULL, &table_routine, prog);
     index = 0;
