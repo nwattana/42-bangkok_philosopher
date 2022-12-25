@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 23:03:07 by nwattana          #+#    #+#             */
-/*   Updated: 2022/12/14 01:49:01 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/12/25 22:48:44 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void    my_sleep(long ms, t_prog *prog)
     start = get_curtime();
     while (prog->stop && (get_curtime() - start) < ms)
 	{
-		if	get_curtime() - start 
-		usleep(200);
+		if	(get_curtime() - start)
+			usleep(200);
 	}
 }
 
