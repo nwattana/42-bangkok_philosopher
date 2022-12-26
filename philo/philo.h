@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 01:50:10 by nwattana          #+#    #+#             */
-/*   Updated: 2022/12/26 05:57:04 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/12/26 11:54:35 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,5 @@ void	my_sleep(long ms, t_prog *prog);
 int		actiontime(long time);
 void	pprog(t_prog *prog);
 void	putstr_fd(char *str, int fd);
+int		isvalid_param(t_prog *prog);
 #endif

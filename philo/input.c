@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 19:37:46 by nwattana          #+#    #+#             */
-/*   Updated: 2022/12/26 00:26:17 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/12/26 11:44:42 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void	get_info(t_prog *prog, int ac, char **av)
 void	init_prog(t_prog *prog)
 {
 	prog->philo = NULL;
+	prog->full = 0;
 	prog->cp = 0;
 	prog->dp = 0;
 	prog->ep = 0;

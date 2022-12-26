@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 01:47:45 by nwattana          #+#    #+#             */
-/*   Updated: 2022/12/26 11:37:02 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/12/26 11:54:20 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,13 @@ int	main(int ac, char **av)
 		return (1);
 	}
 	get_info(&prog, ac, av);
+	prog.err = isvalid_param(&prog);
 	if (!prog.err)
 	{
 		create_philo(&prog);
 		run_routine(&prog);
 	}
-	return (0);
+	return (prog.err);
 }
 
 void	*philo_rountine(void *arg)
@@ -92,7 +93,7 @@ void	*table_routine(void *arg)
 			index++;
 		}
 	}
-	usleep(100);
+	usleep(1000);
 	ft_exit(prog);
 	return (NULL);
 }
