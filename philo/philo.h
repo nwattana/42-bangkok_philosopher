@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 01:50:10 by nwattana          #+#    #+#             */
-/*   Updated: 2022/12/12 02:03:41 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/12/26 05:57:04 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <pthread.h>
+# include "str_const.h"
 
 typedef struct s_prog	t_prog;
 
@@ -40,53 +41,40 @@ typedef struct s_philo
 	int					pstate;
 	int					ec;
 	long				last_eat;
-
 }						t_philo;
 
 struct s_prog
 {
-	t_philo				*philo;
-	int					cp;
-	int					dp;
-	int					ep;
-	int					sp;
-	int					cep;
-	int					err;
-	pthread_t			tb;
-	int					start;
-	int					stop;
-	int					iscount;
-
+	t_philo		*philo;
+	int			cp;
+	int			dp;
+	int			ep;
+	int			sp;
+	int			cep;
+	int			err;
+	pthread_t	tb;
+	int			start;
+	int			stop;
+	int			iscount;
+	int			full;
 };
 
-/*	input phase */
-void    get_info(t_prog *prog, int ac, char **av);
-void    init_prog(t_prog *prog);
-int     isstrnum(const char *s);
-int     atoint(const char *s);
-
-/*	init thread philo*/
-void    run_routine(t_prog *prog);
-void    create_philo(t_prog *prog);
-void    philo_init_mutex(t_philo *philo, t_prog *prog);
-void    *philo_rountine(void *arg);
-void    *table_routine(void *arg);
-
-/*	routine*/
-void    run_routine(t_prog *prog);
-
-/*	utils */
-void    ft_exit(t_prog *prog);
-int get_index(int i, int size);
-
-/*	time */
-long    get_curtime(void);
-void    my_usleep(int us_time);
-void    my_sleep(long ms, t_prog *prog);
-int   actiontime(long time);
-
-/*	Debug program */
+void	get_info(t_prog *prog, int ac, char **av);
+void	init_prog(t_prog *prog);
+int		isstrnum(const char *s);
+int		atoint(const char *s);
+void	run_routine(t_prog *prog);
+void	create_philo(t_prog *prog);
+void	philo_init_mutex(t_philo *philo, t_prog *prog);
+void	*philo_rountine(void *arg);
+void	*table_routine(void *arg);
+void	run_routine(t_prog *prog);
+void	ft_exit(t_prog *prog);
+int		get_index(int i, int size);
+long	get_curtime(void);
+void	my_usleep(int us_time);
+void	my_sleep(long ms, t_prog *prog);
+int		actiontime(long time);
 void	pprog(t_prog *prog);
 void	putstr_fd(char *str, int fd);
-
 #endif
