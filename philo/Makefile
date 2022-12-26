@@ -6,7 +6,7 @@
 #    By: nwattana <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/12 01:37:24 by nwattana          #+#    #+#              #
-#    Updated: 2022/12/12 01:37:25 by nwattana         ###   ########.fr        #
+#    Updated: 2022/12/26 11:40:07 by nwattana         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ $(NAME): $(OBJS)
 
 clean:
 	$(RM) $(OBJS)
+	$(RM) philo.dSYM
 
 fclean: clean
 	$(RM) $(NAME)
